@@ -8,25 +8,21 @@
 unless os.windows?
   describe user('root') do
     it { should exist }
-    skip 'This is an example test, replace with your own test.'
+    skip 'Root user exists'
   end
 end
 
-describe port(80) do
-  it { should_not be_listening }
-  skip 'This is an example test, replace with your own test.'
+describe port(8080) do
+  it { should be_listening }
+  skip 'Is listening to 8080'
 end
 
-#describe 'tomcat::default' do
-  # describe package('openjdk-7-jdk') do
-  #   it { should be_installed }
-  # end
-  # describe group('tomcat') do
-  #   it{ should exist }
-  # end
-  # describe group('user') do
-  #   it{ should exist }
-  #   it{ should belong_to_group 'tomcat'}
-  #   it{ should have_home_directory 'opt/tomcat'}
-  # end
-#end
+describe package('openjdk-7-jdk') do
+  it { should be_installed }
+end
+
+describe file('/usr/local/tomcat7') do
+  it{ should exist }
+  it{ should be_directory }
+  skip 'Tomcat is put in the correct place'
+end
