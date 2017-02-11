@@ -16,3 +16,17 @@ describe port(80) do
   it { should_not be_listening }
   skip 'This is an example test, replace with your own test.'
 end
+
+#describe 'tomcat::default' do
+  # describe package('openjdk-7-jdk') do
+  #   it { should be_installed }
+  # end
+  # describe group('tomcat') do
+  #   it{ should exist }
+  # end
+  # describe group('user') do
+  #   it{ should exist }
+  #   it{ should belong_to_group 'tomcat'}
+  #   it{ should have_home_directory 'opt/tomcat'}
+  # end
+#end
